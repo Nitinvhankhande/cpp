@@ -1909,7 +1909,7 @@ Escape Sequence characters
 	// Menu driven program
 	// we have to store the runs scored by 3 players in N matches
 	// find current top scorer
-//
+
 //#include<iostream>
 //#include<string.h>
 //using namespace std;
@@ -1972,6 +1972,10 @@ Escape Sequence characters
 //            cout<< "\n*************************************** High scorer : "<<highscore;
 //            cout<< "\n*************************************** player name : "<<highscorer;
 //        }
+//        char* Return()
+//        {
+//            return nm;
+//        }
 //};
 //int Player::highscore;
 //char Player::highscorer[50];
@@ -2003,7 +2007,7 @@ Escape Sequence characters
 //                case 1:
 //                    int plyopt;
 //                    cout<< "\nselect the player to get enter score : ";
-//                    cout << "\n 1.First Player\t2.second Player\t3.Third Player :";
+//                    cout << "\n 1."<< p[0].Return() << "\t2." << p[1].Return() <<  "\t3."<<p[2].Return()  << " :";
 //                    cin>>plyopt;
 //                    switch(plyopt)
 //                    {
@@ -2040,6 +2044,7 @@ Escape Sequence characters
 //    }
 //    return 0;
 //}
+
 ///=========================================================================================================================================================================
 /**
  Friend Function
@@ -3537,8 +3542,8 @@ Count the number of occurrences of a specific character in a string using the ov
 //
 //
 ///===========================================================================================================================================
-/** Type conversion in C++:
-
+/**                                        // Type conversion in C++:
+==============================================================================================================================================
 
 	int x=10;
 	double y=x; // here int converted to double.
@@ -3550,36 +3555,150 @@ Count the number of occurrences of a specific character in a string using the ov
 	- base type to class type (default conversion) - constructor
 	- class type to base type (conversion function) - member function/ operator overload
 	- class type to another class type (source to destination conversion)
-*/
-//
-//- base type to class type:
-//
-//class Complex
-//{
-//	int real;
-//	float img;
-//    public:
-//	Complex()
-//	{
-//		real=1;
-//		img=1.1;
-//	}
-//	Complex(int a1, float a2)
-//	{
-//		real=a1;
-//		img=a2;
-//	}
-//
-//	.......
-//}
-//
-//...
-//
-//	Complex ob(3,45.41);
+
+
+- base type to class type:
+
+class Complex
+{
+	int real;
+	float img;
+    public:
+	Complex()
+	{
+		real=1;
+		img=1.1;
+	}
+	Complex(int a1, float a2)
+	{
+		real=a1;
+		img=a2;
+	}
+
+	.......
+}
+
+...
+
+	Complex ob(3,45.41);
 
 //--------------------------------------------------------
+
+	// - class type to base type
+
+	class String
+        {
+	char data[50];
+    public:
+	String(){}
+	String(char t[])
+	{
+		strcpy(data,t);
+	}
+	void setString()
+	{
+		cout<<endl<<"Enter the String: ";
+		cin.getline(data,50);
+	}
+	char* getString()
+	{
+		return data;
+	}
+	String operator+(String s)
+	{
+	    String tmp;
+	    strcpy(tmp.data,data);
+	    strcat(tmp.data,s.data);
+	    return tmp;
+	}
+	int operator/(char ch)
+	{
+		int i,cnt=0;
+
+		for(i=0;data[i]!='\0';i++)
+		{
+			if(data[i]==ch)
+			{
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+};
+
+
+	int t = s1/'a';		// s1.operator/(ch)
+
+	char *s=s1.getString();
+
+
+*/
+///=============================================================================================================================================
+/// - class type to another class type
+
+//
+//using namespace std;
+//class React;
+//class Square
+//{
+//        int side;
+//        public:
+//            Square()
+//            {
+//                side=0;
+//            }
+//            Square(int t)
+//            {
+//                side=t;
+//            }
+//            int area()
+//            {
+//                return side*side;
+//            }
+//            friend class React;
+//};
+//
+//class React
+//{
+//    int l;
+//    int b;
+//    public:
+//        React()
+//        {
+//            l=b=0;
+//        }
+//        React(int a1 ,int a2)
+//        {
+//            l=a1;
+//            b=a2;
+//        }
+//        React(Square t)   ///class type to another class type
+//        {
+//            l=b=t.side;
+//        }
+//        int area()
+//        {
+//            return l*b;
+//        }
+//};
+//
+//int main()
+//{
+//    Square ob1(5); // base type converted into class type
+//    int a=ob1.area(); // class type converted into base type
+//    cout << "\n Area of Square : "<<a;
+//
+//    React r1(ob1); // class type to another class type
+//    a=r1.area();
+//    cout << "\n Area of Reactangle : "<<a;
+//    return 0;
+//}
+///=============================================================================================================================================
+///-------------------------------------------------------------------------------------------------------------------------------------
+///                                              - Types of Inheritance
+///-------------------------------------------------------------------------------------------------------------------------------------
 /**
-    - Types of Inheritance
+        - Types of Inheritance
 
 
             single          Multi-level          hierarchical        Multiple         Hybrid           dimond
@@ -4216,11 +4335,35 @@ Using "protected": It is visibility modifier/Accessibility specifier, which is u
 
 	public Memebers		private		protected	public
 */
-
-
-
-
-
+//
+//using namespace std;
+//class A
+//{
+//    protected:  ///if private then it get error
+//        int no;
+//};
+//class B : public A
+//{
+//    int tmp;
+//    public:
+//        void input()
+//        {
+//            cout << "\n Enter any two number : ";
+//            cin>>no>>tmp;
+//        }
+//        void output()
+//        {
+//            cout<< "\n First number : "<<no<< "\t Second Number : "<<tmp;
+//        }
+//};
+//int main()
+//{
+//    B ob1;
+//    ob1.input();
+//    ob1.output();
+//    return 0;
+//}
+///===========================================================================================================================================
 
 
 
