@@ -5971,9 +5971,171 @@ Note that, class Result contains two copies of out(), inherited from class Perso
  it is function from base class havinfg empty body and qualified with virtual keyword.
 */
 
+///=====================================================================================================
+///                             Polymorphism: One name many forms
+/**=====================================================================================================
 
 
 
+                         Polymorphism
+                              |
+                ------------------------------
+                |			                 |
+        static/compile-time/		    Dynamic/Run-time
+            Early binding			    Late baiding
+                |			                 |
+            Overloading		    	     Overriding
+                |
+        - function overloading
+        - operatoe overloading
+
+
+lets see, Run-time Polymorphism
+
+                    Shape
+                    [   ] area()
+                      |
+      ________________|_________________
+      |		          |		           |
+      |     	      |     	       |
+    [   ]		    [   ]		     [   ]
+    Rect   	        Circle  	    Triangle
+    area()		     area()		      area()
+*/
+
+//
+//using namespace std;
+//
+//class Shape
+//{
+//    public:
+//    	virtual void area()		// Virtual function
+//	{
+//	}
+//};
+//class Rect:public Shape
+//{
+//    public:
+//	void area()
+//	{
+//		cout<<endl<<"In Rect area()";
+//	}
+//};
+//class Circle:public Shape
+//{
+//    public:
+//	void area()
+//	{
+//		cout<<endl<<"In Circle area()";
+//	}
+//};
+//class Triangle:public Shape
+//{
+//    public:
+//	void area()
+//	{
+//		cout<<endl<<"In Triangle area()";
+//	}
+//};
+//
+//int main()
+//{
+//    Shape *sp;
+//
+//    Rect rob;
+//    sp=&rob;
+//    sp->area();
+//
+//    Circle cob;
+//    sp=&cob;
+//    sp->area();
+//
+//    Triangle tob;
+//    sp=&tob;
+//    sp->area();
+//    return 0;
+//}
+///---------------------------------------------------------------------------------------------------------------------------
+
+/**
+ Now, we and to ad one more child
+
+                     Shape
+                    [   ] area()
+                      |
+	  ________________|________________ _ _ _ _ _ _ _ _
+	  |		          |		          |		          |
+	  |     	      |     	      |  		      |
+	[   ]		    [   ]		    [   ]	        [   ]
+	Rect   	        Circle  	   Triangle         Parabola
+	area()		    area()		    area()
+
+*/
+
+//
+//using namespace std;
+//class Shape
+//{
+//    public:
+//    virtual void area()=0; /// pure virtual function
+//};
+//class Rect:public Shape
+//{
+//    public:
+//	void area()
+//	{
+//		cout<<endl<<"In Rect area()";
+//	}
+//};
+//class Circle:public Shape
+//{
+//    public:
+//	void area()
+//	{
+//		cout<<endl<<"In Circle area()";
+//	}
+//};
+//class Triangle:public Shape
+//{
+//    public:
+//	void area()
+//	{
+//		cout<<endl<<"In Triangle area()";
+//	}
+//};
+//class Parabola:public Shape
+//{
+//    public:
+//	void area()
+//	{
+//		cout<<endl<<"In parabola area()";
+//	}
+//};
+//
+//int main()
+//{
+//	Shape *s;
+//
+//	Rect rob;
+//	s=&rob;
+//	s->area();
+//
+//	Circle cob;
+//	s=&cob;
+//	s->area();
+//
+//	Triangle tob;
+//	s=&tob;
+//	s->area();
+//
+//	Parabola pob;
+//	s=&pob;
+//	s->area();
+//
+//	return 0;
+//}
+//
+///===========================================================================================================================================
 
 
 
